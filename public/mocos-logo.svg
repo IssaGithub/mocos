@@ -1,0 +1,12 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- MoCoS Text -->
+  <text x="10" y="45" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="#000000">
+    <tspan>Mo</tspan><tspan fill="#FF0000">Co</tspan><tspan>S</tspan>
+  </text>
+  
+  <!-- Mobilfunk. Fullservice! -->
+  <rect x="10" y="50" width="140" height="18" fill="#000000"/>
+  <text x="12" y="62" font-family="Arial, sans-serif" font-size="11" font-weight="500" fill="#FFFFFF">
+    Mobilfunk. Fullservice!
+  </text>
+</svg> 
