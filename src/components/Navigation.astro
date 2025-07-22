@@ -1,0 +1,183 @@
+---
+// Navigation component for MoCoS
+---
+
+<style>
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu {
+    display: none;
+  }
+  
+  .nav-logo {
+    height: 60px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+  }
+  
+  .nav-logo:hover {
+    opacity: 0.8;
+  }
+  
+  .top-bar {
+    background-color: #000;
+    color: white;
+  }
+  
+  .main-nav {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .nav-link {
+    color: #374151;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #ff0000;
+  }
+  
+  .contact-text {
+    font-size: 0.875rem;
+  }
+</style>
+
+<!-- Obere Kontaktleiste -->
+<div class="top-bar py-2 px-4">
+  <div class="max-w-7xl mx-auto grid grid-cols-3 items-center">
+    <div class="contact-text">
+      <span class="text-white font-semibold">MoCoS – Dein Handyladen</span>
+    </div>
+    <div class="contact-text text-center">
+      <span class="text-red-500 font-semibold">🔴 Kontakt</span>
+    </div>
+    <div class="contact-text text-right">
+      <span class="text-red-500">📞 ++++1 0800 72279030171</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hauptnavigation -->
+<nav class="main-nav">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img src="/mocos-logo.png" alt="MoCoS - Mobilfunk. Fullservice!" class="nav-logo h-16 w-auto" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex space-x-0">
+        <a href="/gewerbekunden" class="nav-link hover:text-red-500">
+          Gewerbekunden
+        </a>
+        
+        <a href="/privatkunden" class="nav-link hover:text-red-500">
+          Privatkunden
+        </a>
+        
+        <!-- Handyreparaturen Dropdown -->
+        <div class="dropdown relative">
+          <a href="/handyreparaturen" class="nav-link hover:text-red-500 flex items-center">
+            Handyreparaturen
+            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <div class="dropdown-menu absolute left-0 mt-0 w-64 bg-white shadow-lg rounded-md py-2 z-50">
+            <a href="/iphone-reparatur" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">iPhone Reparatur</a>
+            <a href="/samsung-reparatur" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">Samsung Reparatur</a>
+            <a href="/huawei-reparatur" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">Huawei Reparatur</a>
+            <a href="/displayreparatur" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">Display Reparatur</a>
+            <a href="/batteriewechsel" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">Batterie Wechsel</a>
+          </div>
+        </div>
+        
+        <a href="/reisen" class="nav-link hover:text-red-500">
+          Reisen
+        </a>
+        
+        <!-- Über uns Dropdown -->
+        <div class="dropdown relative">
+          <a href="/ueber-uns" class="nav-link hover:text-red-500 flex items-center">
+            Über uns
+            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <div class="dropdown-menu absolute left-0 mt-0 w-48 bg-white shadow-lg rounded-md py-2 z-50">
+            <a href="/unternehmen" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">Unternehmen</a>
+            <a href="/standorte" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">Standorte</a>
+            <a href="/karriere" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">Karriere</a>
+            <a href="/kontakt" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-500">Kontakt</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden">
+        <button id="mobile-menu-button" class="text-gray-700 hover:text-red-500 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden pb-4">
+      <div class="space-y-2">
+        <a href="/gewerbekunden" class="block px-4 py-2 text-gray-700 hover:text-red-500 hover:bg-red-50 rounded">Gewerbekunden</a>
+        <a href="/privatkunden" class="block px-4 py-2 text-gray-700 hover:text-red-500 hover:bg-red-50 rounded">Privatkunden</a>
+        
+        <!-- Mobile Handyreparaturen -->
+        <div class="px-4">
+          <div class="text-gray-700 py-2 font-medium">Handyreparaturen</div>
+          <div class="pl-4 space-y-1">
+            <a href="/iphone-reparatur" class="block py-1 text-sm text-gray-600 hover:text-red-500">iPhone Reparatur</a>
+            <a href="/samsung-reparatur" class="block py-1 text-sm text-gray-600 hover:text-red-500">Samsung Reparatur</a>
+            <a href="/huawei-reparatur" class="block py-1 text-sm text-gray-600 hover:text-red-500">Huawei Reparatur</a>
+            <a href="/displayreparatur" class="block py-1 text-sm text-gray-600 hover:text-red-500">Display Reparatur</a>
+            <a href="/batteriewechsel" class="block py-1 text-sm text-gray-600 hover:text-red-500">Batterie Wechsel</a>
+          </div>
+        </div>
+        
+        <a href="/reisen" class="block px-4 py-2 text-gray-700 hover:text-red-500 hover:bg-red-50 rounded">Reisen</a>
+        
+        <!-- Mobile Über uns -->
+        <div class="px-4">
+          <div class="text-gray-700 py-2 font-medium">Über uns</div>
+          <div class="pl-4 space-y-1">
+            <a href="/unternehmen" class="block py-1 text-sm text-gray-600 hover:text-red-500">Unternehmen</a>
+            <a href="/standorte" class="block py-1 text-sm text-gray-600 hover:text-red-500">Standorte</a>
+            <a href="/karriere" class="block py-1 text-sm text-gray-600 hover:text-red-500">Karriere</a>
+            <a href="/kontakt" class="block py-1 text-sm text-gray-600 hover:text-red-500">Kontakt</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+</script> 

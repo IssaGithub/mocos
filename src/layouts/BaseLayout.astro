@@ -1,0 +1,728 @@
+---
+import Navigation from '../components/Navigation.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Schluss mit teuren Roaming-Gebühren! Holen Sie sich sofort günstige eSIM-Datenpakete für über 100 Länder. Einfach QR-Code scannen und sparen." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; }
+        .hero-gradient { background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%); }
+        .text-primary { color: #141617; }
+        .bg-primary { background-color: #141617; }
+        .text-accent { color: #ff0000; }
+        .bg-accent { background-color: #ff0000; }
+        .bg-light { background-color: #f9fafb; }
+        .bg-lighter { background-color: #f2f3f5; }
+        .pulse-ring { animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite; }
+        @keyframes pulse-ring { 0% { transform: scale(0.33); } 80%, 100% { opacity: 0; } }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        .testimonial-card { transition: transform 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-5px); }
+        .cta-button { transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3); }
+    </style>
+</head>
+<body class="bg-white text-primary">
+
+    <!-- Navigation -->
+    <Navigation />
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center px-4 py-12">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left">
+                <!-- Trust Badges -->
+                <div class="flex justify-center lg:justify-start items-center space-x-4 mb-6">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-shield-alt text-green-500"></i>
+                        <span class="text-sm font-medium">100% Sicher</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-clock text-blue-500"></i>
+                        <span class="text-sm font-medium">Sofort aktiv</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-globe text-purple-500"></i>
+                        <span class="text-sm font-medium">100+ Länder</span>
+                    </div>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Nie wieder <span class="text-accent">Roaming-Schock</span> im Urlaub!
+                </h1>
+               
+                <p class="text-xl md:text-2xl mb-8 text-gray-600 max-w-2xl">
+                    Sparen Sie bis zu <strong class="text-accent">90% bei Auslands-Internet</strong> mit unserer eSIM-Lösung. Einfach QR-Code scannen und sofort loslegen – in über 100 Ländern weltweit.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                    <button class="bg-accent hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-lg cta-button inline-flex items-center justify-center">
+                        <i class="fas fa-qrcode mr-3"></i>
+                        QR-Code scannen & sparen
+                    </button>
+                    <button class="border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300">
+                        <i class="fas fa-play-circle mr-3"></i>
+                        Wie es funktioniert
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-center lg:justify-start space-x-6">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-accent">15 Sek</div>
+                        <div class="text-sm text-gray-600">Setup-Zeit</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-accent">90%</div>
+                        <div class="text-sm text-gray-600">Ersparnis</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-accent">100+</div>
+                        <div class="text-sm text-gray-600">Länder</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="bg-white rounded-3xl shadow-2xl p-8 floating">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Sofort scannen & aktivieren</h3>
+                        <p class="text-gray-600">Ihr eSIM-QR-Code wartet auf Sie</p>
+                    </div>
+                   
+                    <div class="relative inline-block mx-auto">
+                        <img src="https://www.mocos.de/wp-content/uploads/unnamed-1.png" alt="eSIM QR-Code" class="w-64 h-64 mx-auto rounded-2xl border-4 border-gray-100">
+                        <div class="absolute inset-0 rounded-2xl pulse-ring bg-accent opacity-20"></div>
+                    </div>
+                   
+                    <div class="mt-6 p-4 bg-green-50 rounded-xl border border-green-200">
+                        <div class="flex items-center justify-center text-green-700">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span class="font-medium">Installation kostenlos – Zahlung nur bei Nutzung</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Intensification -->
+    <section class="py-16 px-4 bg-lighter">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">
+                Kennen Sie das auch? 😰
+            </h2>
+           
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">💸</div>
+                    <h3 class="text-xl font-bold mb-3 text-accent">Roaming-Schock</h3>
+                    <p class="text-gray-600">Hunderte Euro Rechnung nach dem Urlaub, weil Sie unwissend im Ausland gesurft haben.</p>
+                </div>
+               
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">📵</div>
+                    <h3 class="text-xl font-bold mb-3 text-accent">Offline im Notfall</h3>
+                    <p class="text-gray-600">Kein Internet wenn Sie es am dringendsten brauchen – Maps, Übersetzer, Notfälle.</p>
+                </div>
+               
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">🤯</div>
+                    <h3 class="text-xl font-bold mb-3 text-accent">Komplizierte Lösungen</h3>
+                    <p class="text-gray-600">Lokale SIM-Karten kaufen, Verträge abschließen, Sprache nicht verstehen.</p>
+                </div>
+            </div>
+
+            <div class="bg-red-50 border-l-4 border-accent p-6 rounded-r-xl">
+                <p class="text-lg font-medium text-gray-800">
+                    <strong>Die Realität:</strong> Deutsche Urlauber zahlen durchschnittlich <span class="text-accent font-bold">347€ extra</span> für Auslands-Internet – oder verzichten komplett darauf und verpassen wichtige Momente.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Promise -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Stellen Sie sich vor... ✨
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Sie landen in New York, Thailand oder Australien und haben sofort schnelles Internet – ohne Überraschungen, ohne Stress, ohne Roaming-Gebühren.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-plane text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Landen & sofort online sein</h3>
+                                <p class="text-gray-600">Ihr eSIM ist bereits aktiviert und verbindet sich automatisch mit dem besten lokalen Netz.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marked-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Navigation & Kommunikation</h3>
+                                <p class="text-gray-600">Google Maps, WhatsApp, Instagram – alles funktioniert wie zuhause, nur günstiger.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-camera text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Momente sofort teilen</h3>
+                                <p class="text-gray-600">Traumhafte Sonnenuntergänge direkt auf Instagram, ohne sich Gedanken über Kosten zu machen.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-chart-line text-yellow-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Volle Kostenkontrolle</h3>
+                                <p class="text-gray-600">Sie wissen genau was Sie bezahlen – keine Überraschungen, keine automatischen Verlängerungen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://www.mocos.de/wp-content/uploads/preisbeispiele.jpg" alt="Preisbeispiele für verschiedene Länder" class="w-full rounded-2xl shadow-xl">
+                    <div class="absolute -top-4 -right-4 bg-accent text-white px-4 py-2 rounded-full font-bold">
+                        Bis zu 90% günstiger!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="py-16 px-4 bg-primary text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Warum nur wir Ihnen diese Lösung bieten können
+            </h2>
+            <p class="text-xl mb-8 opacity-90">
+                Als offizieller Partner von 1GLOBAL nutzen Sie dasselbe Netzwerk wie Vodafone, AT&T und Orange – mit direkten Verträgen in über 100 Ländern für maximale Ersparnis.
+            </p>
+            <div class="bg-white bg-opacity-10 rounded-xl p-6 inline-block">
+                <div class="text-4xl font-bold text-accent mb-2">Exklusiv bei MOCOS</div>
+                <p class="text-lg">Die einzige eSIM-Lösung mit deutschen Support und Mehrwertsteuer-Ausweis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Arsenal -->
+    <section class="py-16 px-4 bg-light">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Was Sie alles bekommen 💎
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">15-Sekunden Setup</h3>
+                    <p class="text-gray-600">QR-Code scannen, fertig. Einfacher geht's nicht.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe-americas text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">100+ Länder</h3>
+                    <p class="text-gray-600">Von USA bis Thailand – überall beste Netzqualität.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-sim-card text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Ihre SIM bleibt</h3>
+                    <p class="text-gray-600">WhatsApp, Anrufe – alles wie gewohnt erreichbar.</p>
+                    </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Keine Überraschungen</h3>
+                    <p class="text-gray-600">Volle Kostenkontrolle, keine automatische Verlängerung.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bolt text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">5G Geschwindigkeit</h3>
+                    <p class="text-gray-600">In 20+ Ländern ultraschnelles 5G-Internet.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Sofort buchbar</h3>
+                    <p class="text-gray-600">Vor der Reise oder direkt im Zielland aktivieren.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-pink-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Deutscher Support</h3>
+                    <p class="text-gray-600">Bei Fragen erreichen Sie uns auf Deutsch.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-recycle text-teal-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Einmal installieren</h3>
+                    <p class="text-gray-600">Für alle Reisen wiederverwendbar – weltweit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    So einfach funktioniert's 📱
+                </h2>
+                <p class="text-xl text-gray-600">In nur 4 Schritten zu günstigem Auslands-Internet</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-bold mb-3">QR-Code scannen</h3>
+                    <p class="text-gray-600">Öffnen Sie Ihre Kamera und scannen Sie den QR-Code oben auf der Seite.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-bold mb-3">eSIM hinzufügen</h3>
+                    <p class="text-gray-600">Folgen Sie den Anweisungen und fügen Sie die eSIM als Zweitkarte hinzu.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-bold mb-3">Land & Paket wählen</h3>
+                    <p class="text-gray-600">Sie erhalten eine SMS mit Link zur Buchung Ihres Wunsch-Datenpakets.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">4</div>
+                    <h3 class="text-xl font-bold mb-3">Sofort loslegen</h3>
+                    <p class="text-gray-600">Aktivieren Sie die eSIM und surfen Sie sofort günstig im Ausland.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-accent hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full text-lg cta-button inline-flex items-center">
+                    <i class="fas fa-qrcode mr-3"></i>
+                    Jetzt QR-Code scannen & starten
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-16 px-4 bg-lighter">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Das sagen unsere Kunden 🏆
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            MK
+                        </div>
+                        <div>
+                            <div class="font-bold">Maria K.</div>
+                            <div class="text-sm text-gray-600">Thailand-Urlauberin</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"Unglaublich! Statt 400€ Roaming-Gebühren habe ich nur 29€ für 3 Wochen Thailand bezahlt. Setup in 2 Minuten – genial!"</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            TS
+                        </div>
+                        <div>
+                            <div class="font-bold">Thomas S.</div>
+                            <div class="text-sm text-gray-600">USA-Geschäftsreisender</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"Perfekt für Geschäftsreisen! In New York sofort 5G-Internet, Videos laufen flüssig. Nie wieder ohne diese eSIM!"</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            AL
+                        </div>
+                        <div>
+                            <div class="font-bold">Anna L.</div>
+                            <div class="text-sm text-gray-600">Weltreisende</div>
+                        </div>
+                    </div>
+                    <div class="flex text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic">"6 Monate Weltreise, 12 Länder, eine eSIM. Einfach überall das günstigste Paket buchen. Absolute Empfehlung!"</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <div class="flex justify-center items-center space-x-8 flex-wrap">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent">4.9/5</div>
+                        <div class="text-sm text-gray-600">Kundenbewertung</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent">25.000+</div>
+                        <div class="text-sm text-gray-600">Zufriedene Kunden</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent">100+</div>
+                        <div class="text-sm text-gray-600">Länder verfügbar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Häufige Fragen ❓
+                </h2>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-light p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3">🤔 Ist mein Smartphone eSIM-fähig?</h3>
+                    <p class="text-gray-700">Die meisten iPhones ab Version XS und Android-Geräte ab 2018 unterstützen eSIM. Beim Scannen des QR-Codes wird automatisch geprüft, ob Ihr Gerät kompatibel ist.</p>
+                </div>
+
+                <div class="bg-light p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3">💰 Entstehen versteckte Kosten?</h3>
+                    <p class="text-gray-700">Nein! Die eSIM-Installation ist kostenlos. Sie zahlen nur für die Datenpakete, die Sie tatsächlich buchen. Keine Grundgebühr, keine automatische Verlängerung, keine Überraschungen.</p>
+                </div>
+
+                <div class="bg-light p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3">📱 Kann ich weiterhin Anrufe empfangen?</h3>
+                    <p class="text-gray-700">Ja! Ihre normale SIM-Karte bleibt aktiv für Anrufe und SMS. Die eSIM wird nur für mobiles Internet verwendet. WhatsApp, FaceTime etc. funktionieren über die eSIM.</p>
+                </div>
+
+                <div class="bg-light p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3">🌍 Welche Länder sind verfügbar?</h3>
+                    <p class="text-gray-700">Über 100 Länder weltweit! USA, Kanada, Thailand, Japan, Australien, Türkei, Indien und viele mehr. Die komplette Liste sehen Sie nach dem Scannen des QR-Codes.</p>
+                </div>
+
+                <div class="bg-light p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3">⚡ Wie schnell ist das Internet?</h3>
+                    <p class="text-gray-700">Sie nutzen die gleichen Premium-Netze wie Vodafone, AT&T und Orange. In über 20 Ländern sogar 5G-Geschwindigkeit – perfekt für Streaming und Videoanrufe.</p>
+                </div>
+
+                <div class="bg-light p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-3">🔄 Was passiert bei einem Gerätewechsel?</h3>
+                    <p class="text-gray-700">Die eSIM ist an Ihr Gerät gebunden. Bei einem Wechsel scannen Sie einfach den QR-Code erneut mit dem neuen Gerät – kostenlos und unkompliziert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Urgency -->
+    <section class="py-16 px-4 bg-primary text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Jetzt starten & sparen 💰
+            </h2>
+           
+            <div class="bg-white bg-opacity-10 rounded-2xl p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Preisvergleich USA (7 Tage)</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span>Telekom Roaming:</span>
+                                <span class="font-bold text-red-300">149€</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Vodafone Roaming:</span>
+                                <span class="font-bold text-red-300">139€</span>
+                            </div>
+                            <div class="flex justify-between border-t border-white border-opacity-30 pt-3">
+                                <span class="text-xl font-bold">Unsere eSIM:</span>
+                                <span class="text-xl font-bold text-accent">19€</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-green-500 bg-opacity-20 rounded-lg">
+                            <span class="text-green-200 font-bold">Sie sparen: 120€+ (87%)</span>
+                        </div>
+                    </div>
+                   
+                    <div class="text-center">
+                        <div class="text-6xl font-bold text-accent mb-2">0€</div>
+                        <div class="text-xl mb-4">eSIM Installation</div>
+                        <div class="text-sm opacity-75">Zahlung nur bei Nutzung</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-accent bg-opacity-20 border border-accent rounded-xl p-6 mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <i class="fas fa-gift text-accent text-2xl mr-3"></i>
+                    <span class="text-xl font-bold">Bonus für schnelle Entscheider</span>
+                </div>
+                <p class="text-lg mb-4">Installieren Sie die eSIM in den nächsten 24 Stunden und erhalten Sie 500MB Datenvolumen gratis für Ihren ersten Test!</p>
+                <div class="text-sm opacity-75 countdown-timer">⏰ Angebot läuft noch 23:42:15</div>
+            </div>
+
+            <button class="bg-accent hover:bg-red-700 text-white font-bold py-6 px-12 rounded-full text-xl cta-button inline-flex items-center">
+                <i class="fas fa-qrcode mr-4"></i>
+                QR-Code scannen & 500MB gratis sichern
+            </button>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Bereit für sorgenfreie Reisen? 🚀
+            </h2>
+           
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Schließen Sie sich über 25.000 zufriedenen Kunden an, die bereits smart reisen und bis zu 90% bei Auslands-Internet sparen.
+            </p>
+
+            <div class="bg-lighter p-8 rounded-2xl mb-8">
+                <h3 class="text-2xl font-bold mb-4">Ihre Vorteile auf einen Blick:</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>15 Sekunden Setup</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Bis zu 90% Ersparnis</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>100+ Länder verfügbar</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Keine versteckten Kosten</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>5G-Geschwindigkeit</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Deutscher Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="bg-accent hover:bg-red-700 text-white font-bold py-6 px-12 rounded-full text-xl cta-button inline-flex items-center mb-6">
+                <i class="fas fa-qrcode mr-4"></i>
+                Jetzt QR-Code scannen & loslegen
+            </button>
+
+            <div class="text-sm text-gray-600">
+                <p class="mb-2">
+                    <strong>P.S.:</strong> Verpassen Sie nicht die 500MB Gratis-Bonus! Das Angebot ist zeitlich begrenzt und läuft in wenigen Stunden ab.
+                </p>
+                <p>
+                    ✅ Kostenlose Installation ✅ Sofort einsatzbereit ✅ Weltweite Abdeckung
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slot for additional content -->
+    <main>
+        <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MOCOS</h3>
+                    <p class="text-gray-300 mb-4">Ihr Experte für mobile Kommunikation und Reise-Internet.</p>
+                    <div class="flex space-x-4">
+                        <i class="fab fa-facebook text-2xl hover:text-accent cursor-pointer"></i>
+                        <i class="fab fa-instagram text-2xl hover:text-accent cursor-pointer"></i>
+                        <i class="fab fa-twitter text-2xl hover:text-accent cursor-pointer"></i>
+                    </div>
+                </div>
+               
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white">eSIM für Reisen</a></li>
+                        <li><a href="#" class="hover:text-white">Handyreparaturen</a></li>
+                        <li><a href="#" class="hover:text-white">Mobilfunk</a></li>
+                        <li><a href="#" class="hover:text-white">Gewerbekunden</a></li>
+                    </ul>
+                </div>
+               
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">Kontakt</a></li>
+                        <li><a href="#" class="hover:text-white">Hilfe</a></li>
+                        <li><a href="#" class="hover:text-white">Status prüfen</a></li>
+                    </ul>
+                </div>
+               
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Standorte</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Lauffen am Neckar</li>
+                        <li>Gaildorf</li>
+                        <li class="mt-4">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>Support verfügbar</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 MOCOS. Alle Rechte vorbehalten. | Datenschutz | Impressum | AGB</p>
+                <p class="mt-2 text-sm">*freenet DLS GmbH als Kooperationspartner von 1GLOBAL</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+           
+            const distance = tomorrow - now;
+           
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+           
+            const countdownElement = document.querySelector('.countdown-timer');
+            if (countdownElement) {
+                countdownElement.textContent = `⏰ Angebot läuft noch ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 
